@@ -104,6 +104,16 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Creates a file (creat)\n"
+                    "2. Gets status of file (fstat)\n"
+                    "3. Checks the size of the file\n"
+                    "4. Writes into the file\n"
+                    "5. Closes file (close)\n"
+                    "6. Gets status of file (stat)\n"
+                    "7. Checks the size of the file\n"
+                    "8. Open & Read & Contents Compared\n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -201,7 +211,10 @@ main(int argc, char *argv[])
 	if (Tflag) {
 		starttime();
 	}
-
+    
+    fprintf(stdout, "Args | count: %d\n", count);
+    fprintf(stdout, "Success | All creat(), stat(), write(), read(), close(), unlink() success ; read & write content matches\n");
+    fprintf(stdout, "Fail | Any creat(), stat(), write(), read(), close(), unlink() fail ; read & write content does not match\n ");
 	for (ct = 0; ct < count; ct++) {
 #ifdef USE_OPEN
 		fd = open(bigfile, woflags, CHMOD_RW);

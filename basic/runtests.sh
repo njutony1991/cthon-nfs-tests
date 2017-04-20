@@ -25,6 +25,7 @@ set -e
 
 # File and Directory tree creation test
 echo ""
+echo "test file and directory"
 ./test1 $TESTARG
 
 # File and Directory tree removal test
@@ -49,9 +50,9 @@ echo ""
 ./test5 $TESTARG
 # Test 5a and 5b separate out the read and write tests into simpler components.
 # echo ""
-# ./test5a $TESTARG
+ ./test5a $TESTARG
 # echo ""
-# ./test5b $TESTARG
+ ./test5b $TESTARG
 
 # Read Directory test
 echo ""
@@ -67,7 +68,7 @@ else
 fi
 # Link Test
 # echo ""
-# ./test7b $TESTARG
+./test7b $TESTARG
 
 # Symlink and readlink test
 echo ""

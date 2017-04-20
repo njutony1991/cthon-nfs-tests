@@ -63,6 +63,13 @@ main(int argc, char *argv[])
 	char str[256];
 
 	setbuf(stdout, NULL);
+    fprintf(stdout, "Test file and directory removal.\n"
+                    "Builds a tree on the server.\n"
+                    "Syscalls:\n"
+                    "chdir() \n"
+                    "rmdir() (if removing directories, level > 1)\n"
+                    "unlink() \n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -156,6 +163,9 @@ main(int argc, char *argv[])
 	if (Tflag) {
 		starttime();
 	}
+    fprintf(stdout, "Args | levels: %d, files: %d, dirs: %d\n", levels, files, dirs);
+    fprintf(stdout, "Success | All unlink(), chdir(), rmdir() success\n");
+    fprintf(stdout, "Fail | Any unlink(), chdir(), rmdir () fail\n");
 	rmdirtree(levels, files, dirs, fname, dname, &totfiles, &totdirs, 0);
 	if (Tflag) {
 		endtime(&time);

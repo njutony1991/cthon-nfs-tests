@@ -73,6 +73,15 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Creates ten files (creat)\n"
+                    "2. Files get renamed\n"
+                    "3. Files statistics are retrieved (stat) for both the new and old names\n"
+                    "4. Link the new file to the old name (link)\n"
+                    "5. Retrieve the new file and old file stats (stat)\n"
+                    "6. Remove the new file (unlink)\n"
+                    "7. Retrieve the old file stats (stat)\n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {

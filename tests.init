@@ -26,12 +26,12 @@ MNTPOINT="/mnt"
 #	Mac OS X
 # At least some BSD systems don't recognize "hard" (since that's the
 # default), so you might also want to use this definition of MNTOPTIONS.
-MNTOPTIONS="rw,intr"
-MOUNTCMD='./domount -o $MNTOPTIONS $SERVER\:$SERVPATH $MNTPOINT'
+MNTOPTIONS="rw,intr,nolock"
+#MOUNTCMD='./domount -o $MNTOPTIONS $SERVER\:$SERVPATH $MNTPOINT'
 
 # Use this mount command if using:
 #	DG/UX
-#MOUNTCMD='./domount -t nfs -o $MNTOPTIONS $SERVER\:$SERVPATH $MNTPOINT'
+MOUNTCMD='./domount -t nfs -o $MNTOPTIONS $SERVER\:$SERVPATH $MNTPOINT'
 
 UMOUNTCMD='./domount -u $MNTPOINT'
 
@@ -40,8 +40,8 @@ UMOUNTCMD='./domount -u $MNTPOINT'
 #	SVR4
 #	Solaris 2.x
 #	HPUX
-DASHN=
-BLC=\\c
+#DASHN=
+#BLC=\\c
 
 # Use the next two lines if using:
 #	BSD
@@ -49,8 +49,8 @@ BLC=\\c
 #	Linux
 #	Tru64 UNIX
 #	Mac OS X
-#DASHN=-n
-#BLC=
+DASHN=-n
+BLC=
 
 # Use this path for:
 #	Solaris 2.x
@@ -73,7 +73,7 @@ BLC=\\c
 #	Tru64 UNIX
 #	SVR4
 #	Linux
-#PATH=/bin:/usr/bin:/usr/ucb:/usr/ccs/bin:/sbin:/usr/sbin:.
+PATH=/bin:/usr/bin:/usr/ucb:/usr/ccs/bin:/sbin:/usr/sbin:.
 
 # Use this path for:
 #	DG/UX
@@ -91,10 +91,10 @@ BLC=\\c
 
 # Use this path for:
 #	Mac OS X
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:.
+#PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:.
 
-SERVER=""
-SERVPATH="/server"
+SERVER="10.9.255.249"
+SERVPATH="/3039d615-805d-4439-9d9f-16fea92fd3d5"
 TEST="-a"
 TESTARG="-t"
 
@@ -198,25 +198,25 @@ LOCKTESTS=tlock
 #LOCKTESTS=`echo tlocklfs`
 
 # Use with Linux 2.2 / GNU libc 2.0
-#CFLAGS=`echo -DLINUX -DGLIBC=20 -DMMAP -DSTDARG -fwritable-strings`
+CFLAGS=`echo -DLINUX -DGLIBC=20 -DMMAP -DSTDARG`
 #LIBS=`echo -lnsl`
 #MOUNT=/bin/mount
 #UMOUNT=/bin/umount
 
 # Use with Linux 2.4 / GNU libc 2.2
 #CFLAGS=`echo -DLINUX -DGLIBC=22 -DMMAP -DSTDARG -fwritable-strings`
-#LIBS=`echo -lnsl`
-#MOUNT=/bin/mount
-#UMOUNT=/bin/umount
-#LOCKTESTS=`echo tlocklfs tlock64`
+LIBS=`echo -lnsl`
+MOUNT=/bin/mount
+UMOUNT=/bin/umount
+LOCKTESTS=`echo tlocklfs tlock64`
 
 # Use with Linux if your distro doesn't provide a "cc".
 CC=gcc
 
 # Use with Mac OS X
-CFLAGS=`echo -DMACOSX -DNATIVE64 -DLARGE_LOCKS -DSTDARG`
-MOUNT=/sbin/mount
-UMOUNT=/sbin/umount
-LOCKTESTS=`echo tlock`
+#CFLAGS=`echo -DMACOSX -DNATIVE64 -DLARGE_LOCKS -DSTDARG`
+#MOUNT=/sbin/mount
+#UMOUNT=/sbin/umount
+#LOCKTESTS=`echo tlock`
 
 # -----------------------------------------------

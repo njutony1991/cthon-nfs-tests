@@ -64,6 +64,13 @@ main(int argc, char *argv[])
 	char *opts;
 
 	setbuf(stdout, NULL);
+    
+    fprintf(stdout, "Test file and directory creation.\n"   
+                    "Builds a tree on the server.\n"
+                    "Syscalls:\n"
+                    "chdir() \n"
+                    "mkdir() (if creating directories, level > 1)\n" 
+                    "creat() \n"); 
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -155,6 +162,9 @@ main(int argc, char *argv[])
 	if (Tflag && !Sflag) {
 		starttime();
 	}
+    fprintf(stdout, "Args | levels: %d, files: %d, dirs: %d\n", levels, files, dirs); 
+    fprintf(stdout, "Success | All creat(), chdir(), mkdir() success\n");
+    fprintf(stdout, "Fail | Any creat(), chdir(), mkdir () fail\n ");
 	dirtree(levels, files, dirs, fname, dname, &totfiles, &totdirs);
 	if (Tflag && !Sflag) {
 		endtime(&time);

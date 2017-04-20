@@ -69,6 +69,15 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "Changes directory to the test directory\n" 
+                    "Creates ten files. Then the permissions are changed\n"  
+                    "The file status is retrieved for each file. \n"
+                    "Syscalls:\n"
+                    "chdir() \n"
+                    "mkdir() \n"
+                    "creat() \n"
+                    "chmod() \n"
+                    "stat() \n");
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -139,6 +148,9 @@ main(int argc, char *argv[])
 		starttime();
 	}
 
+    fprintf(stdout, "Args | count: %d\n", count);
+    fprintf(stdout, "Success | All chmod(), stat() success, and permission changes as expected\n");
+    fprintf(stdout, "Fail | Any chmod(), stat() fail, or permission does not change as expected\n ");
 	for (ct = 0; ct < count; ct++) {
 		for (fi = 0; fi < files; fi++) {
 			sprintf(str, "%s%d", fname, fi);

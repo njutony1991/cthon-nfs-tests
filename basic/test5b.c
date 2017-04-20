@@ -81,6 +81,11 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Read file in 5a \n"
+                    "2. Compared with written contents\n"
+                    );
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {

@@ -90,6 +90,14 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Creates 200 files (creat)\n"
+                    "2. Open Current Directory (opendir)\n"
+                    "3. The Beginning of the dir (rewinddir)\n"
+                    "4. read until the end (readdir)\n"
+                    "5. file removed and dir closed (closedir, unlink)\n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -176,6 +184,10 @@ main(int argc, char *argv[])
 	if (Tflag) {
 		starttime();
 	}
+
+    fprintf(stdout, "Args | count: %d\n", count);
+    fprintf(stdout, "Success | All opendir(), rewinddir(), readdir(), closedir() success ; no unexpected dir entry\n");
+    fprintf(stdout, "Fail | Any opendir(), rewinddir(), readdir(), closedir() fail ; find unexpected dir entry\n ");
 
 	if ((dir = opendir(".")) == NULL) {
 		error("can't opendir %s", ".");

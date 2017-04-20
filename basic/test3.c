@@ -60,6 +60,13 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "Changes directory to the test directory\n"  
+                    "and gets the file status of the working directory\n"
+                    "Syscalls:\n"
+                    "chdir() \n"
+                    "getcwd() \n"
+                    "stat() \n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {
@@ -118,6 +125,9 @@ main(int argc, char *argv[])
 		starttime();
 	}
 
+    fprintf(stdout, "Args | count: %d\n",count);
+    fprintf(stdout, "Success | All getcwd(), chdir(), stat() success\n");
+    fprintf(stdout, "Fail | Any getcwd(), chdir(), stat() fail\n ");
 	for (ct = 0; ct < count; ct++) {
 		if (getcwd(path, sizeof(path)) == NULL) {
 			fprintf(stderr, "%s: getcwd failed\n", Myname);

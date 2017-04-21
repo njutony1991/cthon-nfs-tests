@@ -84,6 +84,9 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Get the file system status on current directory (statfs) ---- FSSTAT\n");
+
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {

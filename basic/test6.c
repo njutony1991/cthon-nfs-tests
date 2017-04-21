@@ -92,10 +92,10 @@ main(int argc, char *argv[])
 	setbuf(stdout, NULL);
 
     fprintf(stdout, "This program changes directory to the test directory and then:\n"
-                    "1. Creates 200 files (creat)\n"
-                    "2. Open Current Directory (opendir)\n"
+                    "1. Creates 200 files (creat) ---- CREATE UNCHECKED\n"
+                    "2. Open Current Directory (opendir) ---- ACCESS \n"
                     "3. The Beginning of the dir (rewinddir)\n"
-                    "4. read until the end (readdir)\n"
+                    "4. read until the end (readdir) ---- READDIRPLUS\n"
                     "5. file removed and dir closed (closedir, unlink)\n");
 
 	Myname = *argv++;

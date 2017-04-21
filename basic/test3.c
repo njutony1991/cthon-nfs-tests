@@ -63,9 +63,9 @@ main(int argc, char *argv[])
     fprintf(stdout, "Changes directory to the test directory\n"  
                     "and gets the file status of the working directory\n"
                     "Syscalls:\n"
-                    "chdir() \n"
+                    "chdir() ---- ACCESS\n"
                     "getcwd() \n"
-                    "stat() \n");
+                    "stat() ---- GETATTR LOOKUP\n");
 
 	Myname = *argv++;
 	argc--;

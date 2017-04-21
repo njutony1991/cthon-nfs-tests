@@ -74,13 +74,13 @@ main(int argc, char *argv[])
 	umask(0);
 	setbuf(stdout, NULL);
     fprintf(stdout, "This program changes directory to the test directory and then:\n"
-                    "1. Creates ten files (creat)\n"
-                    "2. Files get renamed\n"
-                    "3. Files statistics are retrieved (stat) for both the new and old names\n"
-                    "4. Link the new file to the old name (link)\n"
-                    "5. Retrieve the new file and old file stats (stat)\n"
-                    "6. Remove the new file (unlink)\n"
-                    "7. Retrieve the old file stats (stat)\n");
+                    "1. Creates ten files (creat) ---- CREATE UNCHECKED\n"
+                    "2. Files get renamed ---- RENAME\n"
+                    "3. Files statistics are retrieved (stat) for both the new and old names ---- GETATTR LOOKUP\n"
+                    "4. Link the new file to the old name (link) ---- LINK\n"
+                    "5. Retrieve the new file and old file stats (stat) ----- GETATTR LOOKUP\n"
+                    "6. Remove the new file (unlink) ---- REMOVE\n"
+                    "7. Retrieve the old file stats (stat) ---- GETATTR LOOKUP\n");
 
 	Myname = *argv++;
 	argc--;
@@ -150,6 +150,10 @@ main(int argc, char *argv[])
 		testdir(NULL);
 	else
 		mtestdir(NULL);
+
+    fprintf(stdout, "Args | count: %d files: %d\n", count, files);
+    fprintf(stdout, "Success | All rename(), stat(), link() success;\n");
+    fprintf(stdout, "Fail | Any rename(), stat(), link() fail;\n");
 
 	dirtree(1, files, 0, fname, DNAME, &totfiles, &totdirs);
 

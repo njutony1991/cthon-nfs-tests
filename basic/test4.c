@@ -73,11 +73,11 @@ main(int argc, char *argv[])
                     "Creates ten files. Then the permissions are changed\n"  
                     "The file status is retrieved for each file. \n"
                     "Syscalls:\n"
-                    "chdir() \n"
-                    "mkdir() \n"
-                    "creat() \n"
-                    "chmod() \n"
-                    "stat() \n");
+                    "chdir() ---- ACCESS\n"
+                    "mkdir() ---- MKDIR\n"
+                    "creat() ---- CREATE UNCHECKED\n"
+                    "chmod() ---- ACCESS SETATTR\n"
+                    "stat() ---- GETATTR LOOKUP\n");
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {

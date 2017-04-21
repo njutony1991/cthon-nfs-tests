@@ -75,6 +75,11 @@ main(int argc, char *argv[])
 
 	umask(0);
 	setbuf(stdout, NULL);
+    fprintf(stdout, "This program changes directory to the test directory and then:\n"
+                    "1. Makes ten symlinks (symlink) ---- SYMLINK\n"
+                    "2. Read Links (readlink) ---- ACCESS\n"
+                    "3. Get statistics (stat) for each Link ---- GETATTR LOOKUP\n"
+                    "4. Unlink each links (unlink) ---- REMOVE\n");
 	Myname = *argv++;
 	argc--;
 	while (argc && **argv == '-') {

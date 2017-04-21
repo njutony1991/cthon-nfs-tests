@@ -105,12 +105,12 @@ main(int argc, char *argv[])
 	umask(0);
 	setbuf(stdout, NULL);
     fprintf(stdout, "This program changes directory to the test directory and then:\n"
-                    "1. Creates a file (creat)\n"
-                    "2. Gets status of file (fstat)\n"
+                    "1. Creates a file (creat) ---- CREATE UNCHECKED\n"
+                    "2. Gets status of file (stat) ---- GETATTR LOOKUP\n"
                     "3. Checks the size of the file\n"
                     "4. Writes into the file\n"
                     "5. Closes file (close)\n"
-                    "6. Gets status of file (stat)\n"
+                    "6. Gets status of file (stat) ---- GETATTR LOOKUP\n"
                     "7. Checks the size of the file\n"
                     "8. Open & Read & Contents Compared\n");
 

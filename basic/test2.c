@@ -66,9 +66,9 @@ main(int argc, char *argv[])
     fprintf(stdout, "Test file and directory removal.\n"
                     "Builds a tree on the server.\n"
                     "Syscalls:\n"
-                    "chdir() \n"
-                    "rmdir() (if removing directories, level > 1)\n"
-                    "unlink() \n");
+                    "chdir() ---- ACCESS\n"
+                    "rmdir() (if removing directories, level > 1) ---- RMDIR \n"
+                    "unlink() ---- REMOVE\n");
 
 	Myname = *argv++;
 	argc--;

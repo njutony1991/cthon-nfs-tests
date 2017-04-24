@@ -19,17 +19,17 @@ esac
 set -e
 umask 0
 
-echo ""
-echo "check for proper open/unlink operation"
-TMPDIR= ./op_unlk
+#echo ""
+#echo "check for proper open/unlink operation"
+#TMPDIR= ./op_unlk
 
-echo ""
-echo "check for proper open/rename operation"
-TMPDIR= ./op_ren
+#echo ""
+#echo "check for proper open/rename operation"
+#TMPDIR= ./op_ren
 
-echo ""
-echo "check for proper open/chmod 0 operation"
-TMPDIR= ./op_chmod
+#echo ""
+#echo "check for proper open/chmod 0 operation"
+#TMPDIR= ./op_chmod
 
 if [ "$HARDLINKS"o != no ]
 then
@@ -47,10 +47,10 @@ echo "test exclusive create."
 #echo "test statfs for file count, should get positive, different numbers"
 #./fstat
 
-echo ""
-echo "test negative seek, you should get: read: Invalid argument"
-echo "or lseek: Invalid argument"
-./negseek testfile
+#echo ""
+#echo "test negative seek, you should get: read: Invalid argument"
+#echo "or lseek: Invalid argument"
+#./negseek testfile
 
 echo ""
 echo "test rename"
@@ -60,45 +60,45 @@ echo ""
 echo "test truncate"
 ./truncate
 
-echo ""
-echo "test holey file support"
-./holey
+#echo ""
+#echo "test holey file support"
+#./holey
 
-if [ "$HARDLINKS"o != no -a "$CIFS" != "yes" ]
-then
-	echo ""
-	echo "second check for lost reply on non-idempotent requests"
-	./nfsidem 50 testdir
-fi
+#if [ "$HARDLINKS"o != no -a "$CIFS" != "yes" ]
+#then
+#	echo ""
+#	echo "second check for lost reply on non-idempotent requests"
+#	./nfsidem 50 testdir
+#fi
 
-echo ""
-echo "test rewind support"
-./rewind
+#echo ""
+#echo "test rewind support"
+#./rewind
 
 echo ""
 echo "test telldir cookies"
 ./telldir
 
-echo ""
-echo "test freesp and file size"
-./freesp
+#echo ""
+#echo "test freesp and file size"
+#./freesp
 
 # Keep the following tests at the end.  They can take quite a bit of
 # time to run.
 
-echo ""
-size=30
-echo "write/read" $size "MB file"
-./bigfile -s $size bigfile$$
+#echo ""
+#size=30
+#echo "write/read" $size "MB file"
+#./bigfile -s $size bigfile$$
 
-echo ""
-echo "write/read at 2GB, 4GB edges"
-if echo $MNTOPTIONS | grep vers=2 > /dev/null
-then
-	echo "skipping test; not supported with v2"
-else
-	./bigfile2 bigfile$$
-fi
+#echo ""
+#echo "write/read at 2GB, 4GB edges"
+#if echo $MNTOPTIONS | grep vers=2 > /dev/null
+#then
+#	echo "skipping test; not supported with v2"
+#else
+#	./bigfile2 bigfile$$
+#fi
 
 echo ""
 echo "Special tests complete"

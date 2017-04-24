@@ -46,7 +46,7 @@ else
 	else
 		echo "$Program: no test defaults file ($InitFile)"
 		echo "usage: $Program [-N passes] [tests [testargs [testpath]]]"
-		echo "tests: -a=all, -b=basic, -g=general, -s=special, -l=lock"
+		echo "tests: -a=all, -b=basic, -s=special"
 		echo "testargs: -f=functional, -t=timing"
 		exit 1
 	fi
@@ -57,7 +57,7 @@ then
 	then
 		echo "$Program: NFSTESTDIR environment variable not set"
 		echo "usage: $Program [-N passes] [tests [testargs [testpath]]]"
-		echo "tests: -a=all, -b=basic, -g=general, -s=special, -l=lock"
+		echo "tests: -a=all, -b=basic, -s=special"
 		echo "testargs: -f=functional, -t=timing"
 		exit 1
 	fi
@@ -67,18 +67,16 @@ fi
 export PATH CFLAGS LIBS NFSTESTDIR
 
 case $TESTS in
-	-a)	dirs="basic general special lock"	;;
+	-a)	dirs="basic special"	;;
 	-b)	dirs="basic"		;;
-	-g)	dirs="general"		;;
 	-s)	dirs="special"		;;
-	-l)	dirs="lock"		;;
 esac
 
 if test x"$dirs" = x
 then
 	echo "$Program: no tests specified"
 	echo "usage: $Program [tests [testargs [testpath]]]"
-	echo "tests: -a=all, -b=basic, -g=general, -s=special, -l=lock"
+	echo "tests: -a=all, -b=basic, -s=special"
 	echo "testargs: -f=functional, -t=timing"
 	exit 1
 

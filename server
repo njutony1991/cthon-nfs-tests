@@ -6,7 +6,7 @@
 #
 # run tests given a server name.  mounts, tests, and unmounts
 # arguments:
-#	-a|-b|-g|-s|-l	test selectors, passed to runtests
+#	-a|-b|-s	test selectors, passed to runtests
 #	-f|-t|-n	test arguments, passed to runtests
 #	-c		use cachefs; need to specify cachefs mount
 #			options with -o
@@ -19,7 +19,7 @@
 Program=`basename $0`
 
 InitFile="./tests.init"
-USAGE="usage:  $Program [-a|-b|-g|-s|-l|-c] [-f|-t|-n|-h|-C] [-o mnt_options] [-p server_path] [-m mntpoint] [-N passes] server_name"
+USAGE="usage:  $Program [-a|-b|-s|-c] [-f|-t|-n|-h|-C] [-o mnt_options] [-p server_path] [-m mntpoint] [-N passes] server_name"
 
 # defaults
 . $InitFile
@@ -37,7 +37,7 @@ fi
 for c in $*
 do
 	case $c in
-		-a|-b|-g|-s|-l)	TEST=$c; shift	;;
+		-a|-b|-s)	TEST=$c; shift	;;
 		-f|-n|-t)	TESTARG=$c; shift	;;
 		-c)		cachefs="yes"; shift	;;
 		-C)		CIFS="yes"; export CIFS; shift ;;

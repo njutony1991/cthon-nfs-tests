@@ -51,6 +51,8 @@ main(int argc, char *argv[])
 			exit(1);
 		}
 	}
+
+    fprintf(stdout, "rename test passed!\n");
 cleanup:
 	unlink("rename1");
 	unlink("rename2");

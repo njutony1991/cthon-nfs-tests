@@ -46,13 +46,13 @@ else
 fi
 
 # Write and read tests
-echo ""
-./test5 $TESTARG
+#echo ""
+#./test5 $TESTARG
 # Test 5a and 5b separate out the read and write tests into simpler components.
 # echo ""
- ./test5a $TESTARG
+# ./test5a $TESTARG
 # echo ""
- ./test5b $TESTARG
+# ./test5b $TESTARG
 
 # Read Directory test
 echo ""

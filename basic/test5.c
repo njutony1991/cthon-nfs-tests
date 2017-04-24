@@ -10,8 +10,8 @@
  *	mkdir()		(for initial directory creation if not -m)
  *	creat()
  *	open()
- *	read()
  *	write()
+ *	read()
  *	stat()
  *	fstat()
  *	unlink()
@@ -108,11 +108,10 @@ main(int argc, char *argv[])
                     "1. Creates a file (creat) ---- CREATE UNCHECKED\n"
                     "2. Gets status of file (stat) ---- GETATTR LOOKUP\n"
                     "3. Checks the size of the file\n"
-                    "4. Writes into the file\n"
-                    "5. Closes file (close)\n"
+                    "4. Closes file (close)\n"
                     "6. Gets status of file (stat) ---- GETATTR LOOKUP\n"
                     "7. Checks the size of the file\n"
-                    "8. Open & Read & Contents Compared\n");
+                    );
 
 	Myname = *argv++;
 	argc--;
@@ -213,8 +212,8 @@ main(int argc, char *argv[])
 	}
     
     fprintf(stdout, "Args | count: %d\n", count);
-    fprintf(stdout, "Success | All creat(), stat(), write(), read(), close(), unlink() success ; read & write content matches\n");
-    fprintf(stdout, "Fail | Any creat(), stat(), write(), read(), close(), unlink() fail ; read & write content does not match\n ");
+    fprintf(stdout, "Success | All creat(), stat(), close(), unlink() success ; read & write content matches\n");
+    fprintf(stdout, "Fail | Any creat(), stat(), close(), unlink() fail ; read & write content does not match\n ");
 	for (ct = 0; ct < count; ct++) {
 #ifdef USE_OPEN
 		fd = open(bigfile, woflags, CHMOD_RW);

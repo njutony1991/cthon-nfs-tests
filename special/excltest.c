@@ -57,6 +57,7 @@ main(int argc, char *argv[])
 			}
 		}
 	}
+    fprintf(stdout, "exclusive create test passed!\n");
 
 	return (0);
 }

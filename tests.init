@@ -26,7 +26,7 @@ MNTPOINT="/mnt"
 #	Mac OS X
 # At least some BSD systems don't recognize "hard" (since that's the
 # default), so you might also want to use this definition of MNTOPTIONS.
-MNTOPTIONS="rw,intr,nolock"
+MNTOPTIONS="rw,intr,nolock,noac"
 #MOUNTCMD='./domount -o $MNTOPTIONS $SERVER\:$SERVPATH $MNTPOINT'
 
 # Use this mount command if using:
@@ -93,8 +93,10 @@ PATH=/bin:/usr/bin:/usr/ucb:/usr/ccs/bin:/sbin:/usr/sbin:.
 #	Mac OS X
 #PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:.
 
-SERVER="10.9.255.249"
-SERVPATH="/3039d615-805d-4439-9d9f-16fea92fd3d5"
+SERVER="192.168.150.28"
+SERVPATH="/d8557e4f-5056-4109-826e-5ca2249f6a84"
+#SERVER="192.168.154.115"
+#SERVPATH="/65af1e73-e033-439e-a197-67a5baeb2b8e"
 TEST="-a"
 TESTARG="-t"
 
